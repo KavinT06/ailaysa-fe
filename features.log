@@ -1,0 +1,108 @@
+# Ailaysa E-Commerce Application
+
+A modern, clean e-commerce application built with Next.js 14, featuring user authentication and product management.
+
+## Features Implemented
+
+### ✅ User Authentication
+- **Login Page**: Email and password authentication with a beautiful UI matching the Figma design
+- **Session Management**: User credentials persisted in cookies and managed via Zustand
+- **Logout Functionality**: Secure logout that clears session data
+- **Protected Routes**: Automatic redirect to login if not authenticated
+
+### ✅ Product Management
+- **Product Listing**: Display products fetched from Fake Store API
+- **Category Filter**: Filter products by category (electronics, jewelery, men's clothing, women's clothing)
+- **Create Product**: Add new products via modal form with API integration
+- **Delete Product**: Remove products from the list (locally after API call)
+- **Product Details**: Detailed view showing title, price, description, category, image, and rating
+
+### ✅ Bonus Features
+- **Wishlist**: Add/remove products from wishlist (persisted in localStorage)
+- **Category Filter**: Fully functional category filtering system
+
+## Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **State Management**: Zustand
+- **Styling**: Tailwind CSS
+- **Cookie Management**: js-cookie
+- **API**: Fake Store API
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── page.js              # Login page
+│   ├── products/
+│   │   ├── page.js          # Products listing page
+│   │   └── [id]/page.js     # Product details page
+│   ├── layout.js
+│   └── globals.css
+├── components/
+│   ├── ProductCard.js       # Product card component
+│   └── CreateProductModal.js # Create product modal
+└── store/
+    ├── authStore.js         # Authentication state management
+    └── productStore.js      # Product state management
+```
+
+## Getting Started
+
+1. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
+
+2. **Run Development Server**:
+   ```bash
+   npm run dev
+   ```
+
+3. **Open Browser**:
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## Usage
+
+### Login
+1. Enter any email and password (no validation required for demo)
+2. Click "Sign in" to access the products page
+
+### Products Page
+- **View Products**: Browse all available products
+- **Filter by Category**: Click category buttons to filter
+- **Wishlist**: Click the heart icon on any product card
+- **Create Product**: Click the "+ Create Product" button in the top right
+- **Delete Product**: Click the "Delete" button on any product card
+- **View Details**: Click on any product card to see full details
+
+### Product Details
+- View comprehensive product information
+- Delete product from this page as well
+- Navigate back to products list
+
+## Code Quality
+
+- ✅ Clean, readable code with proper component separation
+- ✅ Optimized performance with proper React hooks usage
+- ✅ Simple and maintainable architecture
+- ✅ Responsive design for all screen sizes
+- ✅ Proper error handling
+- ✅ Type-safe state management with Zustand
+
+## API Integration
+
+All API calls use the Fake Store API:
+- `GET /products` - Fetch all products
+- `GET /products/category/:category` - Fetch products by category
+- `POST /products` - Create new product
+- `DELETE /products/:id` - Delete product
+- `GET /products/:id` - Fetch single product
+
+## Notes
+
+- The delete operation only removes products locally as the Fake Store API is a mock API
+- Authentication is simplified for demo purposes
+- The application follows Next.js best practices with App Router
+- All components are client-side rendered where necessary
