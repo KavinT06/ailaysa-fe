@@ -76,7 +76,7 @@ export default function ProductsPage() {
                             <span className="text-2xl font-bold text-blue-600">🛒</span>
                         </div>
                         <div>
-                            <h1 className="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-700 via-purple-700 to-pink-600 drop-shadow-lg">Ailaysa Shop</h1>
+                            <h1 className="text-2xl font-extrabold bg-clip-text text-green-900 bg-gradient-to-r from-blue-700 via-purple-700 to-pink-600 drop-shadow-lg">Ailaysa Shop</h1>
                             <p className="text-xs text-white/80 font-medium mt-1">Welcome, {user?.email}</p>
                         </div>
                     </div>
