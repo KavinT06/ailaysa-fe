@@ -67,45 +67,65 @@ export default function ProductsPage() {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            {/* Header */}
-            <header className="bg-white shadow-sm sticky top-0 z-40">
+            {/* Attractive Navbar/Header */}
+            <header className="sticky top-0 z-40 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 shadow-xl rounded-b-3xl">
                 <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-                    <div>
-                        <h1 className="text-2xl font-bold text-gray-900">Products</h1>
-                        <p className="text-sm text-gray-600">Welcome, {user?.email}</p>
+                    {/* Logo and Title */}
+                    <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-md">
+                            <span className="text-2xl font-bold text-blue-600">🛒</span>
+                        </div>
+                        <div>
+                            <h1 className="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-700 via-purple-700 to-pink-600 drop-shadow-lg">Ailaysa Shop</h1>
+                            <p className="text-xs text-white/80 font-medium mt-1">Welcome, {user?.email}</p>
+                        </div>
                     </div>
-                    <div className="flex gap-4">
+                    {/* Actions */}
+                    <div className="flex gap-3">
                         <button
                             onClick={() => setShowModal(true)}
-                            className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition font-semibold"
+                            className="bg-white/90 text-blue-700 px-5 py-2 rounded-xl font-bold shadow-md hover:bg-blue-600 hover:text-white transition-all duration-200 border-2 border-blue-200 hover:border-blue-700 flex items-center gap-2"
                         >
-                            + Create Product
+                            <span className="text-lg">＋</span> <span>Create Product</span>
                         </button>
                         <button
                             onClick={handleLogout}
-                            className="bg-gray-200 text-gray-800 px-6 py-2 rounded-lg hover:bg-gray-300 transition font-semibold"
+                            className="bg-white/90 text-gray-700 px-5 py-2 rounded-xl font-bold shadow-md hover:bg-pink-600 hover:text-white transition-all duration-200 border-2 border-pink-200 hover:border-pink-600 flex items-center gap-2"
                         >
-                            Logout
+                            <span className="text-lg">🚪</span> <span>Logout</span>
                         </button>
                     </div>
                 </div>
             </header>
 
-            {/* Category Filter */}
-            <div className="max-w-7xl mx-auto px-4 py-6">
-                <div className="flex gap-2 flex-wrap">
-                    {categories.map((category) => (
-                        <button
-                            key={category}
-                            onClick={() => setCategory(category)}
-                            className={`px-4 py-2 rounded-lg capitalize transition ${selectedCategory === category
-                                    ? 'bg-blue-600 text-white'
-                                    : 'bg-white text-gray-700 hover:bg-gray-100'
-                                }`}
-                        >
-                            {category}
-                        </button>
-                    ))}
+            {/* Attractive Category Filter */}
+            <div className="max-w-7xl mx-auto px-4 py-8">
+                <div className="flex gap-3 flex-wrap justify-center">
+                    {categories.map((category) => {
+                        let icon = '';
+                        switch (category) {
+                            case 'all': icon = '🌈'; break;
+                            case 'electronics': icon = '💻'; break;
+                            case 'jewelery': icon = '💍'; break;
+                            case "men's clothing": icon = '👔'; break;
+                            case "women's clothing": icon = '👗'; break;
+                            default: icon = '🛒';
+                        }
+                        return (
+                            <button
+                                key={category}
+                                onClick={() => setCategory(category)}
+                                className={`flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold capitalize shadow-md border-2 transition-all duration-200 text-base
+                                    ${selectedCategory === category
+                                        ? 'bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white border-transparent scale-105 shadow-lg'
+                                        : 'bg-white text-gray-700 border-gray-200 hover:bg-blue-50 hover:border-blue-300 hover:scale-105'}
+                                `}
+                            >
+                                <span className="text-lg">{icon}</span>
+                                <span>{category}</span>
+                            </button>
+                        );
+                    })}
                 </div>
             </div>
 
